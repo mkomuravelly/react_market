@@ -1,22 +1,27 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import * as actions from "./actions";
+import React,{Component, Fragment} from "react";
+import {connect} from "react-redux";
+import  * as actions  from "./actions";
+import App from "../charts/FirstChart";
+
 
 class Home extends Component {
     componentDidMount() {
         this.props.getUser();
     }
     render() {
-        return  <div><h1>Hello</h1>
+        return  <div>                     
+                <App />
         {
-
+            
             this.props.usersData!=null&&
             this.props.usersData.result!=null&&
             this.props.usersData.result.filter((data)=>data.id<=10).map((item)=>{
-              return ( <li> {item.id}---{item.title}</li> )
+              return (
+                 <li> {item.id}---{item.title}</li> )
             })
         }
         </div>  
+
     }
 }
 
