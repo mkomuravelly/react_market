@@ -2,7 +2,7 @@ import {
     actions
 } from "../constants/constants"
 
-const users = (state = {
+export const users = (state = {
     fetching: true,
     result: null,
     error: null
@@ -13,7 +13,7 @@ const users = (state = {
         case actions.GET_USER_SUCCESS:
             return ({
                 ...state,
-                result: action.result,
+                result: action.response,
                 error: null
             });
         case actions.GET_USER_ERROR:
@@ -26,7 +26,3 @@ const users = (state = {
             return state;
     }
 };
-
-export default {
-    users
-}

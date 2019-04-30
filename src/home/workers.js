@@ -1,4 +1,4 @@
-import {call} from "redux-saga/effects";
+import {call, put} from "redux-saga/effects";
 import { debug } from "util";
 
 const xhr = () => {
@@ -7,11 +7,11 @@ const xhr = () => {
     ).then(data => {return data})
 }
 export function* getUserWorker() {
-    try {
-        
+    try {      
         const response = yield call(xhr);
-        debugger;
-        console.log(JSON.stringify(response));
+       // debugger;
+        //console.log(JSON.stringify(response));
+        yield put({ type: 'GET_USER_SUCCESS', response });
     } catch {
 
     }
