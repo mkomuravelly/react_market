@@ -1,13 +1,19 @@
-import React,{Component} from "react";
+import React,{Component, Fragment} from "react";
 import {connect} from "react-redux";
 import  * as actions  from "./actions";
+import App from "../charts/FirstChart";
 
 class Home extends Component {
     componentDidMount(){
         this.props.getUser();
     }
     render() {
-        return <h1>Hello</h1>
+        return (
+            <Fragment>
+                <h4>First Chart</h4>
+              <App />
+            </Fragment>
+        );
     }
 }
 
